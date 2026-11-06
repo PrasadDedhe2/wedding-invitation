@@ -14,8 +14,8 @@
   --wine: #4c1026;
   --wine-dark: #260713;
   --gold: #d8b46b;
-  --gold-light: #f3dfaa;
-  --ivory: #fff8e9;
+  --gold-light: #fbeed4;
+  --ivory: #ffffff;
   --pink: #e7a2a5;
   --green: #315b3b;
 }
@@ -143,7 +143,7 @@ button { font: inherit; }
   position: absolute;
   width: 105px;
   height: 105px;
-  opacity: .85;
+  opacity: .95;
   pointer-events: none;
   z-index: 1;
 }
@@ -161,7 +161,7 @@ button { font: inherit; }
   transform: translateX(-50%);
   width: min(90%, 490px);
   height: 52px;
-  border-bottom: 2px solid #d8b46b99;
+  border-bottom: 2px solid var(--gold);
   border-radius: 0 0 50% 50%;
   z-index: 1;
 }
@@ -195,30 +195,33 @@ button { font: inherit; }
 
 .invocation {
   color: var(--gold-light);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
   margin: 2px 0 14px;
+  text-shadow: 0 1px 4px #000;
 }
 
 .stotram {
   font-family: 'Noto Serif Devanagari', serif;
-  color: #fff4dc;
+  color: #ffffff;
   font-size: clamp(17px, 4.5vw, 22px);
   line-height: 1.9;
-  font-weight: 500;
+  font-weight: 600;
   max-width: 440px;
   margin: 0 auto 15px;
-  text-shadow: 0 2px 12px #1c0710;
+  text-shadow: 0 2px 10px #000;
 }
 
 .stotram-meaning {
   max-width: 390px;
-  color: #f0d9bd;
-  font-size: 12px;
+  color: #fff8ee;
+  font-size: 13px;
   line-height: 1.65;
   margin: 0 auto;
+  font-weight: 500;
+  text-shadow: 0 1px 4px #000;
 }
 
 /* COUPLE PAGE */
@@ -226,18 +229,19 @@ button { font: inherit; }
   color: var(--gold-light);
   text-transform: uppercase;
   letter-spacing: 3px;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   margin-bottom: 14px;
+  text-shadow: 0 1px 4px #000;
 }
 
 .names {
   font-family: 'Playfair Display', serif;
   font-size: clamp(43px, 10vw, 70px);
   line-height: 1.12;
-  color: #fff4dc;
-  font-weight: 600;
-  text-shadow: 0 3px 20px #16050c88;
+  color: #ffffff;
+  font-weight: 700;
+  text-shadow: 0 3px 15px #000;
   margin: 3px 0;
   position: relative;
   z-index: 3;
@@ -254,9 +258,11 @@ button { font: inherit; }
 .weds {
   font-family: 'Cinzel', serif;
   color: var(--gold-light);
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 5px;
   margin: 12px 0 15px;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #000;
 }
 
 .gold-rule {
@@ -267,11 +273,13 @@ button { font: inherit; }
 }
 
 .invite-line {
-  color: #f8e9d1;
-  font-size: 14px;
+  color: #ffffff;
+  font-size: 15px;
   line-height: 1.8;
   max-width: 340px;
   margin: 8px auto;
+  font-weight: 500;
+  text-shadow: 0 1px 4px #000;
 }
 
 .date {
@@ -281,13 +289,16 @@ button { font: inherit; }
   letter-spacing: 2px;
   margin: 15px 0 5px;
   font-weight: 700;
+  text-shadow: 0 2px 6px #000;
 }
 
 .day {
-  color: #f3d8bb;
-  font-size: 12px;
+  color: #fff8ee;
+  font-size: 13px;
   letter-spacing: 3px;
   text-transform: uppercase;
+  font-weight: 600;
+  text-shadow: 0 1px 4px #000;
 }
 
 /* WEDDING TIME DETAIL */
@@ -298,11 +309,11 @@ button { font: inherit; }
   gap: 10px;
   padding: 9px 20px;
   margin: 13px auto 2px;
-  border: 1px solid #d8b46b88;
+  border: 1px solid var(--gold);
   border-radius: 40px;
-  background: linear-gradient(90deg, #d8b46b12, #d8b46b25, #d8b46b12);
+  background: rgba(45, 10, 22, 0.85);
   color: var(--gold-light);
-  box-shadow: 0 0 18px #d8b46b12;
+  box-shadow: 0 0 18px #d8b46b22;
 }
 
 .time-icon {
@@ -323,30 +334,37 @@ button { font: inherit; }
   color: var(--gold-light);
   font-size: clamp(32px, 7vw, 43px);
   margin: 0 0 10px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px #000;
 }
 
 .venue-label {
-  font-size: 11px;
-  color: var(--gold);
+  font-size: 12px;
+  color: var(--gold-light);
   text-transform: uppercase;
   letter-spacing: 4px;
   font-weight: 700;
   margin-bottom: 10px;
+  text-shadow: 0 1px 4px #000;
 }
 
 .venue-name {
   font-family: 'Playfair Display', serif;
   font-size: clamp(24px, 6vw, 33px);
   line-height: 1.25;
-  color: #fff4dc;
+  color: #ffffff;
   margin: 5px 0 10px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px #000;
 }
 
 .address {
-  font-size: 14px;
-  color: #f4dfc8;
+  font-size: 15px;
+  color: #ffffff;
   line-height: 1.7;
   max-width: 360px;
+  font-weight: 500;
+  text-shadow: 0 1px 4px #000;
 }
 
 .map-link {
@@ -356,6 +374,7 @@ button { font: inherit; }
   border: 1px solid var(--gold);
   border-radius: 30px;
   color: var(--gold-light);
+  background: rgba(45, 10, 22, 0.85);
   text-decoration: none;
   font-size: 12px;
   font-weight: 700;
@@ -371,6 +390,8 @@ button { font: inherit; }
   color: var(--gold-light);
   font-size: 21px;
   margin: 5px 0 10px;
+  font-weight: 700;
+  text-shadow: 0 2px 6px #000;
 }
 
 .poem {
@@ -380,9 +401,11 @@ button { font: inherit; }
   padding: 0 8px;
   text-align: center;
   font-family: 'Playfair Display', serif;
-  font-size: clamp(13px, 3.5vw, 16px);
+  font-size: clamp(14px, 3.8vw, 17px);
   line-height: 1.7;
-  color: #f9e8d1;
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 2px 8px #000;
 }
 
 .poem p { margin: 0; }
@@ -408,51 +431,62 @@ button { font: inherit; }
 .krishna-title {
   color: var(--gold-light);
   font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 3px;
   margin: 4px 0 15px;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #000;
 }
 
 .krishna-stotram {
   font-family: 'Noto Serif Devanagari', serif;
   font-size: clamp(17px, 4.5vw, 22px);
   line-height: 2;
-  color: #fff4dc;
+  color: #ffffff;
   margin: 0 auto 14px;
-  text-shadow: 0 2px 12px #1c0710;
+  font-weight: 600;
+  text-shadow: 0 2px 10px #000;
 }
 
 .krishna-meaning {
   max-width: 390px;
-  color: #f0d9bd;
-  font-size: 12px;
+  color: #fff8ee;
+  font-size: 13px;
   line-height: 1.7;
   margin: 0 auto 14px;
+  font-weight: 500;
+  text-shadow: 0 1px 4px #000;
 }
 
 .final-invite {
   font-family: 'Playfair Display', serif;
-  font-size: 19px;
+  font-size: 20px;
   line-height: 1.5;
-  color: var(--gold-light);
+  color: #ffffff;
   max-width: 380px;
   margin: 6px auto;
+  font-weight: 600;
+  text-shadow: 0 2px 8px #000;
 }
 
 .final-date {
   font-family: 'Cinzel', serif;
-  font-size: 13px;
+  font-size: 14px;
   letter-spacing: 2px;
-  color: #f7e5c4;
+  color: var(--gold-light);
   margin-top: 12px;
+  font-weight: 700;
+  text-shadow: 0 1px 4px #000;
 }
 
 .blessing {
   color: var(--gold-light);
-  font-size: 12px;
+  font-size: 13px;
   letter-spacing: 1px;
   line-height: 1.6;
   margin-top: 12px;
+  font-weight: 600;
+  text-shadow: 0 1px 4px #000;
 }
 
 /* MUSIC CONTROL */
@@ -465,9 +499,9 @@ button { font: inherit; }
   align-items: center;
   gap: 7px;
   padding: 9px 13px;
-  border: 1px solid #d8b46b99;
+  border: 1px solid var(--gold);
   border-radius: 30px;
-  background: #260713cc;
+  background: #260713dd;
   color: var(--gold-light);
   font-size: 11px;
   font-weight: 700;
@@ -493,14 +527,15 @@ button { font: inherit; }
 }
 
 .nav-btn {
-  background: #fff4dc12;
-  border: 1px solid #d8b46b88;
+  background: rgba(45, 10, 22, 0.85);
+  border: 1px solid var(--gold);
   color: var(--gold-light);
   border-radius: 50%;
   width: 38px;
   height: 38px;
   font-size: 18px;
   cursor: pointer;
+  box-shadow: 0 2px 8px #0005;
 }
 
 .dots { display: flex; gap: 8px; }
@@ -509,7 +544,7 @@ button { font: inherit; }
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #fff4dc55;
+  background: rgba(255, 255, 255, 0.4);
   transition: .3s;
 }
 
@@ -525,10 +560,12 @@ button { font: inherit; }
   left: 0;
   right: 0;
   text-align: center;
-  font-size: 10px;
-  color: #f5dfbd99;
+  font-size: 11px;
+  color: var(--gold-light);
   letter-spacing: 2px;
   z-index: 8;
+  font-weight: 600;
+  text-shadow: 0 1px 4px #000;
 }
 
 /* ROYAL DOORS */
@@ -593,25 +630,53 @@ button { font: inherit; }
 .left .door-handle { right: 12px; }
 .right .door-handle { left: 12px; }
 
-.door-caption {
+.door-content-wrap {
   position: absolute;
   z-index: 22;
-  left: 0;
-  right: 0;
+  left: 50%;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translate(-50%, -50%);
   text-align: center;
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: opacity .5s ease;
+}
+
+.door-caption {
   color: var(--gold-light);
   font-family: 'Cinzel', serif;
-  font-size: 12px;
+  font-size: 14px;
   letter-spacing: 4px;
   text-shadow: 0 2px 12px #000;
-  transition: opacity .5s;
+  font-weight: 700;
+}
+
+.open-invite-btn {
+  background: linear-gradient(135deg, #d8b46b, #b78b4a);
+  color: #260713;
+  border: 1px solid #fff;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(216, 180, 107, 0.4);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.open-invite-btn:active {
+  transform: scale(0.95);
 }
 
 .door-open .door.left { transform: rotateY(-105deg); }
 .door-open .door.right { transform: rotateY(105deg); }
-.door-open .door-caption { opacity: 0; }
+.door-open .door-content-wrap { opacity: 0; pointer-events: none; }
 
 /* BALLOONS */
 .balloon {
@@ -673,15 +738,15 @@ button { font: inherit; }
   .ganpati-wrap { width: 82px; height: 82px; margin-bottom: 7px; }
   .ganpati-wrap svg { width: 60px; height: 60px; }
   .stotram { font-size: 17px; line-height: 1.7; margin-bottom: 8px; }
-  .stotram-meaning { font-size: 11px; }
+  .stotram-meaning { font-size: 12px; }
   .names { font-size: clamp(38px, 8vw, 58px); }
   .venue-name { font-size: 25px; }
   .map-link { margin: 8px 0 10px; padding: 9px 18px; }
-  .poem { font-size: 13px; line-height: 1.55; }
+  .poem { font-size: 14px; line-height: 1.55; }
   .krishna-emblem { width: 88px; height: 88px; }
   .krishna-emblem svg { width: 65px; height: 65px; }
   .krishna-stotram { font-size: 17px; line-height: 1.75; }
-  .krishna-meaning { font-size: 11px; }
+  .krishna-meaning { font-size: 12px; }
   .time-detail { margin-top: 8px; padding: 7px 17px; }
 }
 
@@ -948,7 +1013,7 @@ button { font: inherit; }
 
   </div>
 
-  <!-- AUTOMATIC DOOR OPENING -->
+  <!-- ROYAL DOORS (Opens ONLY on button click) -->
   <div id="doorScreen">
     <div class="door left">
       <div class="door-panel"></div>
@@ -958,7 +1023,10 @@ button { font: inherit; }
       <div class="door-panel"></div>
       <div class="door-handle"></div>
     </div>
-    <div class="door-caption">TAP OR WAIT TO OPEN</div>
+    <div class="door-content-wrap">
+      <div class="door-caption">PRASAD WEDS KARISHMA</div>
+      <button id="openInviteBtn" class="open-invite-btn" type="button">OPEN YOUR INVITATION</button>
+    </div>
   </div>
 
   <!-- NAVIGATION -->
@@ -991,24 +1059,21 @@ async function startWeddingMusic() {
   try {
     await weddingMusic.play();
     updateMusicButton(true);
-    console.log("Audio started playing successfully.");
     return true;
   } catch (error) {
-    console.warn("Autoplay was blocked or audio file was not found at ./music/weddingbgm.mp3:", error);
     updateMusicButton(false);
     return false;
   }
 }
 
-// Global user interaction listener to bypass browser autoplay restrictions
 function unlockAudio() {
   if (weddingMusic.paused) {
     startWeddingMusic();
   }
 }
 
-document.addEventListener("pointerdown", unlockAudio);
-document.addEventListener("keydown", unlockAudio);
+document.addEventListener("pointerdown", unlockAudio, { once: true });
+document.addEventListener("keydown", unlockAudio, { once: true });
 
 musicToggle.addEventListener("click", async (event) => {
   event.stopPropagation();
@@ -1021,7 +1086,6 @@ musicToggle.addEventListener("click", async (event) => {
       updateMusicButton(false);
     }
   } catch (error) {
-    console.error("Audio playback error. Verify file path: ./music/weddingbgm.mp3", error);
     musicToggle.querySelector(".music-label").textContent = "File missing?";
     updateMusicButton(false);
   }
@@ -1029,6 +1093,7 @@ musicToggle.addEventListener("click", async (event) => {
 
 const slides = document.getElementById("slides");
 const doorScreen = document.getElementById("doorScreen");
+const openInviteBtn = document.getElementById("openInviteBtn");
 const dots = [...document.querySelectorAll(".dot")];
 
 let currentPage = 0;
@@ -1065,7 +1130,7 @@ function startAutoSlide() {
     } else {
       clearInterval(autoTimer);
     }
-  }, 5000);
+  }, 9000); // Increased wait time per slide
 }
 
 function pauseAndResumeAutoSlide() {
@@ -1074,7 +1139,7 @@ function pauseAndResumeAutoSlide() {
 
   resumeTimer = setTimeout(() => {
     if (currentPage < 3) startAutoSlide();
-  }, 9000);
+  }, 12000);
 }
 
 document.getElementById("prevBtn").addEventListener("click", () => {
@@ -1131,25 +1196,29 @@ stage.addEventListener("mouseleave", () => {
   mouseDown = false;
 });
 
-/* DOORS OPEN AUTOMATICALLY */
-doorScreen.addEventListener("click", () => {
-  unlockAudio();
-});
+/* OPEN DOORS ONLY UPON CLICKING THE BUTTON */
+let doorsOpened = false;
 
-window.addEventListener("load", () => {
+function openDoorsAction(e) {
+  if (e) e.stopPropagation();
+  if (doorsOpened) return;
+  doorsOpened = true;
+
+  startWeddingMusic();
+  doorScreen.classList.add("door-open");
+  releaseBalloons();
+  launchFireworks();
+
   setTimeout(() => {
-    doorScreen.classList.add("door-open");
-    releaseBalloons();
-    launchFireworks();
-
-    setTimeout(() => {
-      doorScreen.style.display = "none";
-      startAutoSlide();
-    }, 2100);
-  }, 900);
+    doorScreen.style.display = "none";
+    startAutoSlide();
+  }, 2100);
 
   createPetals();
-});
+}
+
+openInviteBtn.addEventListener("click", openDoorsAction);
+doorScreen.addEventListener("click", openDoorsAction);
 
 /* BALLOON RELEASE */
 function releaseBalloons() {
