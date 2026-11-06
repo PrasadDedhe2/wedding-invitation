@@ -1,136 +1,1220 @@
-Prasad Weds Karishma | Wedding Invitation
 
-॥ श्री गणेशाय नमः ॥
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prasad Weds Karishma | Wedding Invitation</title>
 
-वक्रतुण्ड महाकाय
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&family=Noto+Serif+Devanagari:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 
-सूर्यकोटि समप्रभ।
+<style>
+:root {
+  --wine: #4c1026;
+  --wine-dark: #260713;
+  --gold: #d8b46b;
+  --gold-light: #f3dfaa;
+  --ivory: #fff8e9;
+  --pink: #e7a2a5;
+  --green: #315b3b;
+}
 
-निर्विघ्नं कुरु मे देव
+* { box-sizing: border-box; }
 
-सर्वकार्येषु सर्वदा॥
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-O Lord Ganesha, with your mighty form and the brilliance of a million suns, bless us and remove every obstacle from our path, always.
+body {
+  background: var(--wine-dark);
+  color: var(--ivory);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
 
-With the blessings of Lord Ganesha
+button { font: inherit; }
 
-Together with our families
+#stage {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, #7b2943 0%, #4c1026 55%, #260713 100%);
+}
 
-<!-- Main Couple Feature Image (The scenic terrace view) -->
-<img src="images/couple.png" alt="Prasad and Karishma" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+.background-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 10% 15%, #e7a2a522, transparent 24%),
+    radial-gradient(circle at 90% 80%, #d8b46b22, transparent 27%);
+}
 
-Prasad
+.stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    radial-gradient(2px 2px at 15% 20%, #f7dfaa99 50%, transparent 100%),
+    radial-gradient(2px 2px at 82% 16%, #f7dfaa88 50%, transparent 100%),
+    radial-gradient(1px 1px at 65% 35%, #fff4d888 50%, transparent 100%),
+    radial-gradient(2px 2px at 25% 75%, #f7dfaa88 50%, transparent 100%),
+    radial-gradient(1px 1px at 90% 68%, #fff4d888 50%, transparent 100%);
+}
 
-WEDS
+/* FOUR-PAGE SLIDESHOW */
+.slides {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: transform 1s cubic-bezier(.75,0,.2,1);
+  z-index: 2;
+}
 
-Karishma
+.slide {
+  width: 25%;
+  height: 100%;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 65px 22px 85px;
+}
 
-Two hearts, one beautiful journey.
+.slide-inner {
+  width: min(100%, 540px);
+  max-height: 100%;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: gentleReveal 1.2s ease both;
+}
 
-We would be honoured by your presence
+@keyframes gentleReveal {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-as we begin our forever.
+/* FLORAL CORNERS */
+.corner {
+  position: absolute;
+  width: 105px;
+  height: 105px;
+  opacity: .85;
+  pointer-events: none;
+  z-index: 1;
+}
 
-02 MARCH 2027
+.corner svg { width: 100%; height: 100%; }
+.corner.tl { top: 0; left: 0; }
+.corner.tr { top: 0; right: 0; transform: scaleX(-1); }
+.corner.bl { bottom: 0; left: 0; transform: scaleY(-1); }
+.corner.br { bottom: 0; right: 0; transform: scale(-1); }
 
-TUESDAY
+.toran {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(90%, 490px);
+  height: 52px;
+  border-bottom: 2px solid #d8b46b99;
+  border-radius: 0 0 50% 50%;
+  z-index: 1;
+}
 
-◷ 12:51 PM
+.toran::before {
+  content: "✿  ❀  ✿  ❀  ✿  ❀  ✿  ❀  ✿";
+  position: absolute;
+  top: 8px;
+  width: 100%;
+  text-align: center;
+  color: var(--gold-light);
+  font-size: 20px;
+  letter-spacing: 8px;
+  text-shadow: 0 2px 8px #1b0710;
+}
 
-A celebration of love, togetherness and new beginnings
+/* GANPATI */
+.ganpati-wrap {
+  width: 104px;
+  height: 104px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  box-shadow: 0 0 0 6px #d8b46b15, 0 0 35px #d8b46b25;
+  background: radial-gradient(circle, #7d3446, #4c1026);
+}
 
-The wedding celebration
+.ganpati-wrap svg { width: 75px; height: 75px; }
 
-Join Us
+.invocation {
+  color: var(--gold-light);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin: 2px 0 14px;
+}
 
-Sai Laxmi Lawns
+.stotram {
+  font-family: 'Noto Serif Devanagari', serif;
+  color: #fff4dc;
+  font-size: clamp(17px, 4.5vw, 22px);
+  line-height: 1.9;
+  font-weight: 500;
+  max-width: 440px;
+  margin: 0 auto 15px;
+  text-shadow: 0 2px 12px #1c0710;
+}
 
-Near Gondur Airport,
+.stotram-meaning {
+  max-width: 390px;
+  color: #f0d9bd;
+  font-size: 12px;
+  line-height: 1.65;
+  margin: 0 auto;
+}
 
-Gondur, Dhule, Maharashtra
+/* COUPLE PAGE */
+.eyebrow {
+  color: var(--gold-light);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
 
-✦ VIEW VENUE ON MAP ✦
+.names {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(43px, 10vw, 70px);
+  line-height: 1.12;
+  color: #fff4dc;
+  font-weight: 600;
+  text-shadow: 0 3px 20px #16050c88;
+  margin: 3px 0;
+  position: relative;
+  z-index: 3;
+}
 
-A Journey Begins
+.ampersand {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 34px;
+  margin: 0;
+  line-height: 1.25;
+}
 
-Two paths once walked beneath different skies,
+.weds {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+  font-size: 13px;
+  letter-spacing: 5px;
+  margin: 12px 0 15px;
+}
 
-Now meet beneath a thousand stars tonight.
+.gold-rule {
+  width: 150px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 13px auto;
+}
 
-Two hearts, one dream, one promise to keep,
+.invite-line {
+  color: #f8e9d1;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 340px;
+  margin: 8px auto;
+}
 
-A love that grows with every heartbeat.
+.date {
+  font-family: 'Cinzel', serif;
+  color: var(--gold-light);
+  font-size: clamp(21px, 5vw, 28px);
+  letter-spacing: 2px;
+  margin: 15px 0 5px;
+  font-weight: 700;
+}
 
-Through every season, come what may,
+.day {
+  color: #f3d8bb;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
 
-Hand in hand, they'll find their way.
+/* NEW WEDDING TIME DETAIL */
+.time-detail {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 9px 20px;
+  margin: 13px auto 2px;
+  border: 1px solid #d8b46b88;
+  border-radius: 40px;
+  background: linear-gradient(90deg, #d8b46b12, #d8b46b25, #d8b46b12);
+  color: var(--gold-light);
+  box-shadow: 0 0 18px #d8b46b12;
+}
 
-And as their journey starts anew,
+.time-icon {
+  font-size: 17px;
+  line-height: 1;
+}
 
-Their happiest days begin with you.
+.time-text {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 2px;
+}
 
-<!-- Bride Procession Decorative Image (The Royal Elephant Carriage) -->
-<img src="images/procession.png" alt="Wedding Procession" style="width: 100%; max-width: 600px; height: auto; display: block; margin: 20px auto; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+/* VENUE PAGE */
+.page-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-light);
+  font-size: clamp(32px, 7vw, 43px);
+  margin: 0 0 10px;
+}
 
-॥ श्री कृष्णाय नमः ॥
+.venue-label {
+  font-size: 11px;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
 
-कृष्णाय वासुदेवाय
+.venue-name {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(24px, 6vw, 33px);
+  line-height: 1.25;
+  color: #fff4dc;
+  margin: 5px 0 10px;
+}
 
-हरये परमात्मने।
+.address {
+  font-size: 14px;
+  color: #f4dfc8;
+  line-height: 1.7;
+  max-width: 360px;
+}
 
-प्रणतः क्लेशनाशाय
+.map-link {
+  display: inline-block;
+  margin: 13px 0 16px;
+  padding: 11px 22px;
+  border: 1px solid var(--gold);
+  border-radius: 30px;
+  color: var(--gold-light);
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  transition: .25s;
+}
 
-गोविन्दाय नमो नमः॥
+.map-link:active { transform: scale(.96); }
 
-Salutations to Lord Krishna, the divine son of Vasudeva, the Supreme Soul and the remover of all suffering. To Govinda, our humble salutations again and again.
+/* POEM */
+.poem-heading {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold-light);
+  font-size: 21px;
+  margin: 5px 0 10px;
+}
 
-With the blessings of the divine,
+.poem {
+  width: 100%;
+  max-width: 390px;
+  margin: 0 auto;
+  padding: 0 8px;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(13px, 3.5vw, 16px);
+  line-height: 1.7;
+  color: #f9e8d1;
+}
 
-we warmly invite you to celebrate
+.poem p { margin: 0; }
 
-our special day with us!
+/* KRISHNA CLOSING PAGE */
+.krishna-emblem {
+  width: 112px;
+  height: 112px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  margin-bottom: 12px;
+  background: radial-gradient(circle, #7d3446, #4c1026);
+  box-shadow: 0 0 0 6px #d8b46b15, 0 0 35px #d8b46b25;
+}
 
-02 MARCH 2027 · SAI LAXMI LAWNS
+.krishna-emblem svg {
+  width: 83px;
+  height: 83px;
+}
 
-Your presence will make our celebration complete.
+.krishna-title {
+  color: var(--gold-light);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin: 4px 0 15px;
+}
 
-A NEW JOURNEY BEGINS
+.krishna-stotram {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(17px, 4.5vw, 22px);
+  line-height: 2;
+  color: #fff4dc;
+  margin: 0 auto 14px;
+  text-shadow: 0 2px 12px #1c0710;
+}
 
-SWIPE TO EXPLORE
+.krishna-meaning {
+  max-width: 390px;
+  color: #f0d9bd;
+  font-size: 12px;
+  line-height: 1.7;
+  margin: 0 auto 14px;
+}
 
-‹
+.final-invite {
+  font-family: 'Playfair Display', serif;
+  font-size: 19px;
+  line-height: 1.5;
+  color: var(--gold-light);
+  max-width: 380px;
+  margin: 6px auto;
+}
 
-›
+.final-date {
+  font-family: 'Cinzel', serif;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: #f7e5c4;
+  margin-top: 12px;
+}
 
-<!-- Background Audio Element -->
-<audio id="bg-music" loop>
-    <source src="music/wedding-bgm.mp3" type="audio/mpeg">
-</audio>
+.blessing {
+  color: var(--gold-light);
+  font-size: 12px;
+  letter-spacing: 1px;
+  line-height: 1.6;
+  margin-top: 12px;
+}
 
-<!-- Floating Audio Play/Pause Button -->
-<button id="music-btn" onclick="toggleMusic()" style="position: fixed; bottom: 20px; right: 20px; z-index: 1000; background-color: #800020; color: white; border: none; border-radius: 50%; width: 50px; height: 50px; font-size: 1.5em; cursor: pointer; box-shadow: 0 4px 10px rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center;">🎵</button>
+/* WEDDING PHOTOGRAPHS */
+.couple-photo {
+  width: clamp(105px, 27vw, 145px);
+  height: clamp(105px, 27vw, 145px);
+  object-fit: contain;
+  display: block;
+  margin: 7px auto 3px;
+  filter: drop-shadow(0 5px 15px #16050c66);
+  animation: photoFloat 4s ease-in-out infinite;
+}
 
-<!-- Audio Script handling browser restrictions -->
+.procession-photo {
+  display: block;
+  width: min(72%, 260px);
+  max-height: 112px;
+  object-fit: contain;
+  margin: 0 auto 8px;
+  filter: drop-shadow(0 5px 12px #16050c66);
+}
+
+@keyframes photoFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* MUSIC CONTROL */
+.music-toggle {
+  position: absolute;
+  z-index: 12;
+  top: max(14px, env(safe-area-inset-top));
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 13px;
+  border: 1px solid #d8b46b99;
+  border-radius: 30px;
+  background: #260713cc;
+  color: var(--gold-light);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .5px;
+  cursor: pointer;
+  box-shadow: 0 3px 14px #0003;
+  backdrop-filter: blur(6px);
+}
+.music-toggle:active { transform: scale(.96); }
+.music-icon { font-size: 16px; line-height: 1; }
+
+/* NAVIGATION */
+.navigation {
+  position: absolute;
+  z-index: 8;
+  bottom: 17px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.nav-btn {
+  background: #fff4dc12;
+  border: 1px solid #d8b46b88;
+  color: var(--gold-light);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.dots { display: flex; gap: 8px; }
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fff4dc55;
+  transition: .3s;
+}
+
+.dot.active {
+  background: var(--gold-light);
+  width: 21px;
+  border-radius: 8px;
+}
+
+.swipe-hint {
+  position: absolute;
+  bottom: 67px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 10px;
+  color: #f5dfbd99;
+  letter-spacing: 2px;
+  z-index: 8;
+}
+
+/* ROYAL DOORS */
+#doorScreen {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  perspective: 1200px;
+  pointer-events: none;
+}
+
+.door {
+  width: 50%;
+  height: 100%;
+  position: relative;
+  background:
+    repeating-linear-gradient(90deg, transparent 0 24px, #d8b46b18 25px 27px),
+    linear-gradient(135deg, #5b152e, #260713 75%);
+  border: 7px solid #b78b4a;
+  box-shadow: inset 0 0 0 3px #f1d79a55, inset 0 0 35px #16040b;
+  transition: transform 2s cubic-bezier(.75,0,.2,1);
+}
+
+.door.left {
+  transform-origin: left center;
+  border-right: 3px solid var(--gold);
+}
+
+.door.right {
+  transform-origin: right center;
+  border-left: 3px solid var(--gold);
+}
+
+.door-panel {
+  position: absolute;
+  inset: 12%;
+  border: 2px solid #d8b46b88;
+  border-radius: 48% 48% 12px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.door-panel::before {
+  content: "❀";
+  color: var(--gold-light);
+  font-size: 60px;
+  text-shadow: 0 0 25px #d8b46b;
+}
+
+.door-handle {
+  position: absolute;
+  top: 52%;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fff1b9, #9c6b2c);
+  box-shadow: 0 0 12px #e9c77b;
+}
+
+.left .door-handle { right: 12px; }
+.right .door-handle { left: 12px; }
+
+.door-caption {
+  position: absolute;
+  z-index: 22;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  text-align: center;
+  color: var(--gold-light);
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-shadow: 0 2px 12px #000;
+  transition: opacity .5s;
+}
+
+.door-open .door.left { transform: rotateY(-105deg); }
+.door-open .door.right { transform: rotateY(105deg); }
+.door-open .door-caption { opacity: 0; }
+
+/* BALLOONS */
+.balloon {
+  position: absolute;
+  bottom: -100px;
+  width: 24px;
+  height: 31px;
+  border-radius: 50% 50% 45% 45%;
+  z-index: 18;
+  opacity: 0;
+  animation: balloonUp 5s ease-in forwards;
+  pointer-events: none;
+}
+
+.balloon::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 28px;
+  background: #fff4dc88;
+  left: 50%;
+  top: 30px;
+}
+
+@keyframes balloonUp {
+  0% { transform: translateY(0) rotate(-5deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(-120vh) rotate(12deg); opacity: 0; }
+}
+
+/* PETALS */
+.petal {
+  position: absolute;
+  top: -25px;
+  width: 10px;
+  height: 14px;
+  background: #f2b4b3;
+  border-radius: 80% 10% 80% 10%;
+  opacity: .7;
+  z-index: 5;
+  pointer-events: none;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  to { transform: translate3d(70px, 110vh, 0) rotate(500deg); }
+}
+
+#fireworks {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  pointer-events: none;
+}
+
+/* SMALL SCREENS */
+@media (max-height: 720px) {
+  .slide { padding-top: 52px; padding-bottom: 75px; }
+  .ganpati-wrap { width: 82px; height: 82px; margin-bottom: 7px; }
+  .ganpati-wrap svg { width: 60px; height: 60px; }
+  .stotram { font-size: 17px; line-height: 1.7; margin-bottom: 8px; }
+  .stotram-meaning { font-size: 11px; }
+  .names { font-size: clamp(38px, 8vw, 58px); }
+  .venue-name { font-size: 25px; }
+  .map-link { margin: 8px 0 10px; padding: 9px 18px; }
+  .poem { font-size: 13px; line-height: 1.55; }
+  .krishna-emblem { width: 88px; height: 88px; }
+  .krishna-emblem svg { width: 65px; height: 65px; }
+  .krishna-stotram { font-size: 17px; line-height: 1.75; }
+  .krishna-meaning { font-size: 11px; }
+  .time-detail { margin-top: 8px; padding: 7px 17px; }
+  .couple-photo { width: 90px; height: 90px; margin: 3px auto; }
+  .procession-photo { max-height: 82px; margin-bottom: 5px; }
+}
+
+@media (max-width: 360px) {
+  .corner { width: 80px; height: 80px; }
+  .stotram, .krishna-stotram { font-size: 16px; }
+  .slide { padding-left: 15px; padding-right: 15px; }
+}
+</style>
+</head>
+
+<body>
+<div id="stage">
+  <audio id="weddingMusic" loop preload="auto">
+    <source src="music/weddingbgm.mp3" type="audio/mpeg">
+    Your browser does not support audio playback.
+  </audio>
+  <button id="musicToggle" class="music-toggle" type="button"
+          aria-label="Play wedding music" aria-pressed="false">
+    <span class="music-icon">♫</span>
+    <span class="music-label">Play Music</span>
+  </button>
+
+  <div class="background-glow"></div>
+  <div class="stars"></div>
+  <canvas id="fireworks"></canvas>
+
+  <div class="slides" id="slides">
+
+    <!-- PAGE 1: GANPATI -->
+    <section class="slide">
+      <div class="toran"></div>
+
+      <div class="corner tl">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+          <circle cx="70" cy="83" r="5" fill="#e8bd70"/>
+        </svg>
+      </div>
+      <div class="corner tr">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+          <circle cx="70" cy="83" r="5" fill="#e8bd70"/>
+        </svg>
+      </div>
+
+      <div class="slide-inner">
+        <div class="ganpati-wrap">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#f3dfaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M50 15 C35 15 28 28 31 42 C33 52 42 56 50 57 C58 56 67 52 69 42 C72 28 65 15 50 15Z"/>
+            <path d="M33 29 C23 18 18 28 25 39 C29 45 35 45 39 43"/>
+            <path d="M67 29 C77 18 82 28 75 39 C71 45 65 45 61 43"/>
+            <path d="M50 48 C49 59 58 62 59 70 C60 79 51 83 45 78"/>
+            <path d="M50 48 C43 56 40 62 42 68"/>
+            <path d="M36 73 Q50 64 64 73"/>
+            <path d="M29 83 Q50 94 71 83"/>
+            <path d="M50 8 L50 15"/>
+            <path d="M44 22 Q50 17 56 22"/>
+            <circle cx="42" cy="37" r="2" fill="#f3dfaa" stroke="none"/>
+            <circle cx="58" cy="37" r="2" fill="#f3dfaa" stroke="none"/>
+            <path d="M50 4 L46 10 L54 10Z" fill="#d8b46b" stroke="none"/>
+          </svg>
+        </div>
+
+        <div class="invocation">॥ श्री गणेशाय नमः ॥</div>
+
+        <div class="stotram">
+          वक्रतुण्ड महाकाय<br>
+          सूर्यकोटि समप्रभ।<br>
+          निर्विघ्नं कुरु मे देव<br>
+          सर्वकार्येषु सर्वदा॥
+        </div>
+
+        <div class="stotram-meaning">
+          O Lord Ganesha, with your mighty form and the brilliance of a million suns,
+          bless us and remove every obstacle from our path, always.
+        </div>
+
+        <div class="gold-rule"></div>
+        <div class="blessing">With the blessings of Lord Ganesha</div>
+      </div>
+    </section>
+
+    <!-- PAGE 2: PRASAD WEDS KARISHMA -->
+    <section class="slide">
+      <div class="toran"></div>
+      <div class="corner tl">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+        </svg>
+      </div>
+      <div class="corner tr">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+        </svg>
+      </div>
+
+      <div class="slide-inner">
+        <div class="eyebrow">Together with our families</div>
+
+        <div class="names">Prasad</div>
+        <div class="weds">WEDS</div>
+        <div class="names">Karishma</div>
+
+        <img class="couple-photo" src="image/couple.png"
+             alt="Illustration of Prasad and Karishma together"
+             loading="eager">
+
+        <div class="gold-rule"></div>
+
+        <div class="invite-line">
+          Two hearts, one beautiful journey.<br>
+          We would be honoured by your presence<br>
+          as we begin our forever.
+        </div>
+
+        <div class="date">02 MARCH 2027</div>
+        <div class="day">TUESDAY</div>
+
+        <div class="time-detail">
+          <span class="time-icon">◷</span>
+          <span class="time-text">12:51 PM</span>
+        </div>
+
+        <div class="gold-rule"></div>
+        <div class="blessing">A celebration of love, togetherness and new beginnings</div>
+      </div>
+    </section>
+
+    <!-- PAGE 3: VENUE AND POEM -->
+    <section class="slide">
+      <div class="toran"></div>
+      <div class="corner tl">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+        </svg>
+      </div>
+      <div class="corner tr">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+        </svg>
+      </div>
+
+      <div class="slide-inner">
+        <div class="venue-label">The wedding celebration</div>
+        <div class="page-title">Join Us</div>
+
+        <img class="procession-photo" src="image/procession.png"
+             alt="Wedding procession illustration" loading="eager">
+
+        <div class="venue-name">Sai Laxmi Lawns</div>
+        <div class="address">
+          Near Gondur Airport,<br>
+          Gondur, Dhule, Maharashtra
+        </div>
+
+        <a class="map-link" target="_blank"
+           href="https://www.google.com/maps/search/?api=1&query=Sai+Laxmi+Lawns+Gondur+Airport+Dhule">
+          ✦ &nbsp; VIEW VENUE ON MAP &nbsp; ✦
+        </a>
+
+        <div class="gold-rule"></div>
+
+        <div class="poem-heading">A Journey Begins</div>
+
+        <div class="poem">
+          <p>
+            Two paths once walked beneath different skies,<br>
+            Now meet beneath a thousand stars tonight.<br>
+            Two hearts, one dream, one promise to keep,<br>
+            A love that grows with every heartbeat.<br>
+            Through every season, come what may,<br>
+            Hand in hand, they'll find their way.<br>
+            And as their journey starts anew,<br>
+            Their happiest days begin with you.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PAGE 4: KRISHNA'S BLESSINGS -->
+    <section class="slide">
+      <div class="toran"></div>
+      <div class="corner tl">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+        </svg>
+      </div>
+      <div class="corner tr">
+        <svg viewBox="0 0 120 120" fill="none">
+          <path d="M0 10 Q45 10 45 55 Q45 85 85 85" stroke="#d8b46b" stroke-width="2"/>
+          <path d="M5 25 Q30 15 35 45 Q15 50 5 25Z" fill="#47734c"/>
+          <path d="M40 50 Q65 30 70 65 Q45 75 40 50Z" fill="#315b3b"/>
+          <circle cx="30" cy="18" r="8" fill="#d98b8c"/>
+          <circle cx="50" cy="82" r="8" fill="#e7a2a5"/>
+        </svg>
+      </div>
+
+      <div class="slide-inner">
+        <div class="krishna-emblem">
+          <svg viewBox="0 0 100 100" fill="none" stroke="#f3dfaa" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M15 67 Q38 43 83 30" stroke-width="5"/>
+            <path d="M23 60 L28 65 M35 51 L40 56 M48 43 L53 48 M61 37 L66 42 M74 32 L79 37"/>
+            <path d="M15 67 Q9 72 14 77 Q20 81 24 73" />
+            <path d="M35 20 Q47 8 61 18 Q69 24 65 34" />
+            <path d="M38 20 Q43 30 55 31" />
+            <path d="M67 17 Q75 10 82 16 Q87 23 80 29" />
+            <path d="M29 78 Q45 88 61 80" />
+            <circle cx="48" cy="24" r="2" fill="#f3dfaa" stroke="none"/>
+            <circle cx="59" cy="26" r="2" fill="#f3dfaa" stroke="none"/>
+            <path d="M47 13 Q55 2 64 12" />
+            <path d="M64 12 Q73 4 78 13" />
+          </svg>
+        </div>
+
+        <div class="krishna-title">॥ श्री कृष्णाय नमः ॥</div>
+
+        <div class="krishna-stotram">
+          कृष्णाय वासुदेवाय<br>
+          हरये परमात्मने।<br>
+          प्रणतः क्लेशनाशाय<br>
+          गोविन्दाय नमो नमः॥
+        </div>
+
+        <div class="krishna-meaning">
+          Salutations to Lord Krishna, the divine son of Vasudeva,
+          the Supreme Soul and the remover of all suffering.
+          To Govinda, our humble salutations again and again.
+        </div>
+
+        <div class="gold-rule"></div>
+
+        <div class="final-invite">
+          With the blessings of the divine,<br>
+          we warmly invite you to celebrate<br>
+          our special day with us!
+        </div>
+
+        <div class="final-date">02 MARCH 2027 · SAI LAXMI LAWNS</div>
+        <div class="blessing">Your presence will make our celebration complete.</div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- AUTOMATIC DOOR OPENING -->
+  <div id="doorScreen">
+    <div class="door left">
+      <div class="door-panel"></div>
+      <div class="door-handle"></div>
+    </div>
+    <div class="door right">
+      <div class="door-panel"></div>
+      <div class="door-handle"></div>
+    </div>
+    <div class="door-caption">A NEW JOURNEY BEGINS</div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="swipe-hint" id="swipeHint">SWIPE TO EXPLORE</div>
+  <div class="navigation">
+    <button class="nav-btn" id="prevBtn" aria-label="Previous page">‹</button>
+    <div class="dots">
+      <div class="dot active"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+    <button class="nav-btn" id="nextBtn" aria-label="Next page">›</button>
+  </div>
+</div>
+
 <script>
-    const music = document.getElementById('bg-music');
-    const btn = document.getElementById('music-btn');
+/* BACKGROUND WEDDING MUSIC */
+const weddingMusic = document.getElementById("weddingMusic");
+const musicToggle = document.getElementById("musicToggle");
 
-    function toggleMusic() {
-        if (music.paused) {
-            music.play();
-            btn.innerText = "⏸️";
-        } else {
-            music.pause();
-            btn.innerText = "🎵";
-        }
+musicToggle.addEventListener("click", async () => {
+  try {
+    if (weddingMusic.paused) {
+      await weddingMusic.play();
+      musicToggle.querySelector(".music-icon").textContent = "♫";
+      musicToggle.querySelector(".music-label").textContent = "Pause Music";
+      musicToggle.setAttribute("aria-label", "Pause wedding music");
+      musicToggle.setAttribute("aria-pressed", "true");
+    } else {
+      weddingMusic.pause();
+      musicToggle.querySelector(".music-icon").textContent = "♪";
+      musicToggle.querySelector(".music-label").textContent = "Play Music";
+      musicToggle.setAttribute("aria-label", "Play wedding music");
+      musicToggle.setAttribute("aria-pressed", "false");
     }
+  } catch (error) {
+    console.warn("Wedding music could not be played:", error);
+    musicToggle.querySelector(".music-label").textContent = "Tap to Play";
+  }
+});
 
-    // Unmute track seamlessly once a user interacts anywhere on the landing screen
-    window.addEventListener('click', () => {
-        if (music.paused) {
-            music.play().then(() => {
-                btn.innerText = "⏸️";
-            }).catch(err => console.log("Autoplay blocked by browser policy until manual click"));
-        }
-    }, { once: true });
+const slides = document.getElementById("slides");
+const doorScreen = document.getElementById("doorScreen");
+const dots = [...document.querySelectorAll(".dot")];
+
+let currentPage = 0;
+let autoTimer = null;
+let resumeTimer = null;
+let startX = 0;
+let startY = 0;
+
+function showPage(page) {
+  currentPage = Math.max(0, Math.min(3, page));
+
+  slides.style.transform = `translateX(-${currentPage * 25}%)`;
+
+  dots.forEach((dot, index) => {
+    dot.classList.toggle("active", index === currentPage);
+  });
+
+  const hints = [
+    "SWIPE TO SEE THE WEDDING INVITATION",
+    "SWIPE TO SEE THE WEDDING DETAILS",
+    "SWIPE TO RECEIVE OUR FINAL BLESSINGS",
+    "WITH LOVE, PRASAD & KARISHMA"
+  ];
+
+  document.getElementById("swipeHint").textContent = hints[currentPage];
+}
+
+function startAutoSlide() {
+  clearInterval(autoTimer);
+
+  autoTimer = setInterval(() => {
+    if (currentPage < 3) {
+      showPage(currentPage + 1);
+    } else {
+      clearInterval(autoTimer);
+    }
+  }, 5000);
+}
+
+function pauseAndResumeAutoSlide() {
+  clearInterval(autoTimer);
+  clearTimeout(resumeTimer);
+
+  resumeTimer = setTimeout(() => {
+    if (currentPage < 3) startAutoSlide();
+  }, 9000);
+}
+
+document.getElementById("prevBtn").addEventListener("click", () => {
+  showPage(currentPage - 1);
+  pauseAndResumeAutoSlide();
+});
+
+document.getElementById("nextBtn").addEventListener("click", () => {
+  showPage(currentPage + 1);
+  pauseAndResumeAutoSlide();
+});
+
+/* SWIPE SUPPORT */
+const stage = document.getElementById("stage");
+
+stage.addEventListener("touchstart", event => {
+  startX = event.changedTouches[0].screenX;
+  startY = event.changedTouches[0].screenY;
+}, { passive: true });
+
+stage.addEventListener("touchend", event => {
+  const endX = event.changedTouches[0].screenX;
+  const endY = event.changedTouches[0].screenY;
+  const dx = endX - startX;
+  const dy = endY - startY;
+
+  if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+    showPage(dx < 0 ? currentPage + 1 : currentPage - 1);
+    pauseAndResumeAutoSlide();
+  }
+}, { passive: true });
+
+/* DESKTOP MOUSE DRAG */
+let mouseDown = false;
+
+stage.addEventListener("mousedown", event => {
+  mouseDown = true;
+  startX = event.clientX;
+});
+
+stage.addEventListener("mouseup", event => {
+  if (!mouseDown) return;
+  mouseDown = false;
+
+  const dx = event.clientX - startX;
+
+  if (Math.abs(dx) > 55) {
+    showPage(dx < 0 ? currentPage + 1 : currentPage - 1);
+    pauseAndResumeAutoSlide();
+  }
+});
+
+stage.addEventListener("mouseleave", () => {
+  mouseDown = false;
+});
+
+/* DOORS OPEN AUTOMATICALLY */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    doorScreen.classList.add("door-open");
+    releaseBalloons();
+    launchFireworks();
+
+    setTimeout(() => {
+      doorScreen.style.display = "none";
+      startAutoSlide();
+    }, 2100);
+  }, 900);
+
+  createPetals();
+});
+
+/* BALLOON RELEASE */
+function releaseBalloons() {
+  const colors = ["#e7a2a5", "#d8b46b", "#f3dfaa", "#b85b70", "#e8c4a0"];
+
+  for (let i = 0; i < 17; i++) {
+    const balloon = document.createElement("div");
+    balloon.className = "balloon";
+    balloon.style.left = (4 + Math.random() * 92) + "%";
+    balloon.style.background = colors[i % colors.length];
+    balloon.style.animationDelay = (Math.random() * 1.8) + "s";
+    balloon.style.animationDuration = (4 + Math.random() * 2) + "s";
+
+    stage.appendChild(balloon);
+    setTimeout(() => balloon.remove(), 8000);
+  }
+}
+
+/* FALLING PETALS */
+function createPetals() {
+  for (let i = 0; i < 15; i++) {
+    const petal = document.createElement("div");
+    petal.className = "petal";
+    petal.style.left = Math.random() * 100 + "%";
+    petal.style.animationDuration = (8 + Math.random() * 8) + "s";
+    petal.style.animationDelay = (Math.random() * 8) + "s";
+    petal.style.opacity = 0.25 + Math.random() * 0.5;
+    stage.appendChild(petal);
+  }
+}
+
+/* FIREWORKS */
+const canvas = document.getElementById("fireworks");
+const ctx = canvas.getContext("2d");
+let particles = [];
+
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+
+resizeCanvas();
+window.addEventListener("resize", resizeCanvas);
+
+function burst(x, y) {
+  for (let i = 0; i < 35; i++) {
+    const angle = Math.random() * Math.PI * 2;
+    const speed = 1 + Math.random() * 3;
+
+    particles.push({
+      x, y,
+      vx: Math.cos(angle) * speed,
+      vy: Math.sin(angle) * speed,
+      life: 55 + Math.random() * 20,
+      maxLife: 75,
+      size: 1 + Math.random() * 2
+    });
+  }
+}
+
+function animateFireworks() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  particles = particles.filter(p => p.life > 0);
+
+  particles.forEach(p => {
+    p.x += p.vx;
+    p.y += p.vy;
+    p.vy += 0.025;
+    p.life--;
+
+    ctx.globalAlpha = p.life / p.maxLife;
+    ctx.fillStyle = "#f3d58d";
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  ctx.globalAlpha = 1;
+  requestAnimationFrame(animateFireworks);
+}
+
+animateFireworks();
+
+function launchFireworks() {
+  burst(canvas.width * 0.18, canvas.height * 0.25);
+  setTimeout(() => burst(canvas.width * 0.82, canvas.height * 0.3), 500);
+  setTimeout(() => burst(canvas.width * 0.65, canvas.height * 0.18), 1100);
+}
 </script>
+</body>
+</html>
