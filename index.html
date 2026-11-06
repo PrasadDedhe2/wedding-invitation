@@ -105,6 +105,20 @@ button { font: inherit; }
   z-index: 0;
 }
 
+/* THIRD SLIDE BACKGROUND IMAGE WITH HALF OPACITY */
+.slide:nth-child(3)::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('./images/procession.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .slide-inner {
   width: min(100%, 540px);
   max-height: 100%;
@@ -276,7 +290,7 @@ button { font: inherit; }
   text-transform: uppercase;
 }
 
-/* NEW WEDDING TIME DETAIL */
+/* WEDDING TIME DETAIL */
 .time-detail {
   display: inline-flex;
   align-items: center;
@@ -441,25 +455,6 @@ button { font: inherit; }
   margin-top: 12px;
 }
 
-/* WEDDING PHOTOGRAPHS */
-.couple-photo {
-  display: none; /* Hidden since it is now set as slide 2 background */
-}
-
-.procession-photo {
-  display: block;
-  width: min(90%, 340px);
-  max-height: 180px;
-  object-fit: contain;
-  margin: 10px auto 14px;
-  filter: drop-shadow(0 5px 12px #16050c66);
-}
-
-@keyframes photoFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
 /* MUSIC CONTROL */
 .music-toggle {
   position: absolute;
@@ -543,7 +538,6 @@ button { font: inherit; }
   z-index: 20;
   display: flex;
   perspective: 1200px;
-  pointer-events: auto; /* Allow tap gesture on doors */
   cursor: pointer;
 }
 
@@ -689,7 +683,6 @@ button { font: inherit; }
   .krishna-stotram { font-size: 17px; line-height: 1.75; }
   .krishna-meaning { font-size: 11px; }
   .time-detail { margin-top: 8px; padding: 7px 17px; }
-  .procession-photo { max-height: 140px; margin-bottom: 8px; }
 }
 
 @media (max-width: 360px) {
@@ -856,9 +849,6 @@ button { font: inherit; }
         <div class="venue-label">The wedding celebration</div>
         <div class="page-title">Join Us</div>
 
-        <img class="procession-photo" src="./images/procession.png"
-             alt="Wedding procession illustration" loading="eager">
-
         <div class="venue-name">Sai Laxmi Lawns</div>
         <div class="address">
           Near Gondur Airport,<br>
@@ -968,7 +958,7 @@ button { font: inherit; }
       <div class="door-panel"></div>
       <div class="door-handle"></div>
     </div>
-    <div class="door-caption">A NEW JOURNEY BEGINS</div>
+    <div class="door-caption">TAP OR WAIT TO OPEN</div>
   </div>
 
   <!-- NAVIGATION -->
@@ -1001,24 +991,24 @@ async function startWeddingMusic() {
   try {
     await weddingMusic.play();
     updateMusicButton(true);
+    console.log("Audio started playing successfully.");
     return true;
   } catch (error) {
+    console.warn("Autoplay was blocked or audio file was not found at ./music/weddingbgm.mp3:", error);
     updateMusicButton(false);
     return false;
   }
 }
 
-// Global user interaction listener to handle browser autoplay policies
+// Global user interaction listener to bypass browser autoplay restrictions
 function unlockAudio() {
   if (weddingMusic.paused) {
     startWeddingMusic();
   }
-  document.removeEventListener("pointerdown", unlockAudio);
-  document.removeEventListener("keydown", unlockAudio);
 }
 
-document.addEventListener("pointerdown", unlockAudio, { once: true });
-document.addEventListener("keydown", unlockAudio, { once: true });
+document.addEventListener("pointerdown", unlockAudio);
+document.addEventListener("keydown", unlockAudio);
 
 musicToggle.addEventListener("click", async (event) => {
   event.stopPropagation();
@@ -1031,8 +1021,8 @@ musicToggle.addEventListener("click", async (event) => {
       updateMusicButton(false);
     }
   } catch (error) {
-    console.warn("Wedding music could not be played.", error);
-    musicToggle.querySelector(".music-label").textContent = "Music file missing?";
+    console.error("Audio playback error. Verify file path: ./music/weddingbgm.mp3", error);
+    musicToggle.querySelector(".music-label").textContent = "File missing?";
     updateMusicButton(false);
   }
 });
@@ -1142,6 +1132,10 @@ stage.addEventListener("mouseleave", () => {
 });
 
 /* DOORS OPEN AUTOMATICALLY */
+doorScreen.addEventListener("click", () => {
+  unlockAudio();
+});
+
 window.addEventListener("load", () => {
   setTimeout(() => {
     doorScreen.classList.add("door-open");
