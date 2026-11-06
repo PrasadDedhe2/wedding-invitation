@@ -694,8 +694,8 @@ button { font: inherit; }
 
 <body>
 <div id="stage">
-  <audio id="weddingMusic" loop preload="auto">
-    <source src="music/weddingbgm.mp3" type="audio/mpeg">
+  <audio id="weddingMusic" loop preload="auto" autoplay playsinline>
+    <source src="./music/weddingbgm.mp3" type="audio/mpeg">
     Your browser does not support audio playback.
   </audio>
   <button id="musicToggle" class="music-toggle" type="button"
@@ -801,7 +801,7 @@ button { font: inherit; }
         <div class="weds">WEDS</div>
         <div class="names">Karishma</div>
 
-        <img class="couple-photo" src="image/couple.png"
+        <img class="couple-photo" src="./images/couple.png"
              alt="Illustration of Prasad and Karishma together"
              loading="eager">
 
@@ -852,7 +852,7 @@ button { font: inherit; }
         <div class="venue-label">The wedding celebration</div>
         <div class="page-title">Join Us</div>
 
-        <img class="procession-photo" src="image/procession.png"
+        <img class="procession-photo" src="./images/procession.png"
              alt="Wedding procession illustration" loading="eager">
 
         <div class="venue-name">Sai Laxmi Lawns</div>
@@ -986,24 +986,53 @@ button { font: inherit; }
 const weddingMusic = document.getElementById("weddingMusic");
 const musicToggle = document.getElementById("musicToggle");
 
-musicToggle.addEventListener("click", async () => {
+function updateMusicButton(isPlaying) {
+  musicToggle.querySelector(".music-icon").textContent = isPlaying ? "♫" : "♪";
+  musicToggle.querySelector(".music-label").textContent = isPlaying ? "Pause Music" : "Play Music";
+  musicToggle.setAttribute("aria-label", isPlaying ? "Pause wedding music" : "Play wedding music");
+  musicToggle.setAttribute("aria-pressed", String(isPlaying));
+}
+
+async function startWeddingMusic() {
+  try {
+    await weddingMusic.play();
+    updateMusicButton(true);
+    return true;
+  } catch (error) {
+    // Browsers (especially iPhone/Safari) commonly block sound autoplay until a user gesture.
+    updateMusicButton(false);
+    return false;
+  }
+}
+
+// Try to begin playing as soon as the page loads.
+window.addEventListener("load", () => {
+  startWeddingMusic();
+});
+
+// If autoplay was blocked, start music on the first tap/click anywhere on the invitation.
+function startAfterFirstGesture() {
+  if (weddingMusic.paused) startWeddingMusic();
+  document.removeEventListener("pointerdown", startAfterFirstGesture);
+  document.removeEventListener("keydown", startAfterFirstGesture);
+}
+document.addEventListener("pointerdown", startAfterFirstGesture, { once: true });
+document.addEventListener("keydown", startAfterFirstGesture, { once: true });
+
+musicToggle.addEventListener("click", async (event) => {
+  event.stopPropagation();
   try {
     if (weddingMusic.paused) {
       await weddingMusic.play();
-      musicToggle.querySelector(".music-icon").textContent = "♫";
-      musicToggle.querySelector(".music-label").textContent = "Pause Music";
-      musicToggle.setAttribute("aria-label", "Pause wedding music");
-      musicToggle.setAttribute("aria-pressed", "true");
+      updateMusicButton(true);
     } else {
       weddingMusic.pause();
-      musicToggle.querySelector(".music-icon").textContent = "♪";
-      musicToggle.querySelector(".music-label").textContent = "Play Music";
-      musicToggle.setAttribute("aria-label", "Play wedding music");
-      musicToggle.setAttribute("aria-pressed", "false");
+      updateMusicButton(false);
     }
   } catch (error) {
-    console.warn("Wedding music could not be played:", error);
-    musicToggle.querySelector(".music-label").textContent = "Tap to Play";
+    console.warn("Wedding music could not be played. Check that ./music/weddingbgm.mp3 exists and is a valid audio file.", error);
+    musicToggle.querySelector(".music-label").textContent = "Music file missing?";
+    updateMusicButton(false);
   }
 });
 
